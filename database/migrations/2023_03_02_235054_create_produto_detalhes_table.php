@@ -14,13 +14,19 @@ return new class extends Migration
     public function up()
     {
         Schema::create('produto_detalhes', function (Blueprint $table) {
+            //colunas
             $table->id();
             $table->unsignedBigInteger('produto_id'); //produtos  
-            $table->float('comprimento', 8,2);
-            $table->float('largura', 8,2);
-            $table->float('altura', 8,2);
-
+            $table->float('comprimento', 8, 
+            2);
+            $table->float('largura', 8, 2);
+            $table->float('altura', 8, 2);
             $table->timestamps();
+
+            //constrant
+            //referencio a chave estrangeira
+            $table->foreign('produto_id')->references('id')->on('produtos');
+            $table->unique('produto_id'); //índico que será de Um pra Um
 
         });
     }
