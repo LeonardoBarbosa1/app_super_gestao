@@ -19,9 +19,7 @@ return new class extends Migration
             $table->string('nome',100);
             $table->text('descricao')->nullable();//permite que o campo seja nulo
             $table->integer('peso')->nullable();
-            $table->float('preco_venda',8,2)->default(0.01);//fica com o valor default(0.01) caso nao seja colocado nenhum valor
-            $table->integer('estoque_minimo')->default(1);
-            $table->integer('estoque_maximo')->default(1);
+            
 
         });
     }

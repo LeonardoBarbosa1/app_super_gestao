@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        //adicionando colunas da tabela produtos
-        Schema::table('fornecedores', function (Blueprint $table){
-            $table->string('site', 150)->after('nome')->nullable();
+        Schema::create('motivo_contatos', function (Blueprint $table) {
+            $table->id();
+            $table->string('motivo_contato', 50);
+            $table->timestamps();
         });
-       
     }
 
     /**
@@ -27,9 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //adicionando colunas da tabela produtos
-        Schema::table('fornecedores', function (Blueprint $table){
-            $table->dropColumn('site');
-        });
+        Schema::dropIfExists('motivo_contatos');
     }
 };

@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        //adicionando colunas da tabela produtos
-        Schema::table('fornecedores', function (Blueprint $table){
-            $table->string('site', 150)->after('nome')->nullable();
-        });
-       
+        Schema::table('fornecedores', function (Blueprint $table) {
+            $table->softDeletes();
+    });
     }
 
     /**
@@ -27,9 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        //adicionando colunas da tabela produtos
-        Schema::table('fornecedores', function (Blueprint $table){
-            $table->dropColumn('site');
-        });
+        Schema::table('fornecedores', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });    
     }
 };
