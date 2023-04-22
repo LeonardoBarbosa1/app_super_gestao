@@ -19,7 +19,7 @@
                     <span class="texto-branco">Sua empresa na nuvem</span>
                 </div>
             </div>
-            <div class="video">
+            <div class="imagem">
                 <img src="{{ asset('/img/player_video.jpg') }}">
             </div>
         </div>

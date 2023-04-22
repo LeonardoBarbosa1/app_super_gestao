@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
     <head>
         <title>Super Gestão - @yield('titulo')</title>
         <meta charset="utf-8">

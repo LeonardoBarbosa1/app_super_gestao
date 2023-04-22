@@ -4,6 +4,8 @@
 @section('titulo',$titulo)
 {{-- CORPO --}}
 @section('conteudo')
+
+
     <div class="conteudo-pagina">
         <div class="titulo-pagina">
             <h1>Entre em contato conosco</h1>
