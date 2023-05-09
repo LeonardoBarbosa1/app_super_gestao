@@ -44,6 +44,7 @@
     <textarea name="mensagem"  class="{{$classe}}"  >
         {{ (old('mensagem') != '') ? old('mensagem') : 'Preencha aqui uma mensagem' }}   
     </textarea>
+
     <br>
     <button type="submit" class="{{$classe}}">ENVIAR</button>
 </form>

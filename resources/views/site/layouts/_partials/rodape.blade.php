@@ -1,9 +1,17 @@
+<?php
+$insta = "https://www.instagram.com/dev.barbosa2/";
+$linkedin = "https://www.linkedin.com/in/leonardo-barbosa-a9639a21a/"
+?>
 <div class="rodape">
         <div class="redes-sociais">
             <h2>Redes sociais</h2>
-            <img src="{{ asset('img/facebook.png') }}">
-            <img src="{{ asset('img/linkedin.png') }}">
-            <img src="{{ asset('img/youtube.png') }}">
+            <a href="{{ $insta }}" target="_blank">
+                <img src="{{ asset('img/instagram.png') }}">
+            </a>
+            <a href="{{ $linkedin }}" target="_blank">
+                <img src="{{ asset('img/linkedin.png') }}">
+            </a>
+           
         </div>
         <div class="area-contato">
             <h2>Contato</h2>

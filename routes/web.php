@@ -51,13 +51,15 @@ Route::get('/sobre-nos', 'App\Http\Controllers\SobreNosController@sobreNos')->na
 Route::get('/contato', 'App\Http\Controllers\ContatoController@contato')->name('site.contato');
 
 Route::post('/contato', 'App\Http\Controllers\ContatoController@salvar')->name('site.contato');
-Route::get('/login', function(){return 'login';})->name('site.login');
+Route::post('/login/{erro?}', 'App\Http\Controllers\LoginController@autenticar')->name('site.login');
+Route::get('/login', 'App\Http\Controllers\LoginController@index')->name('site.login');
 
 Route::middleware('autenticacao')->prefix('/app')->group(function(){
-    
-    Route::get('/clientes', function(){return 'clientes';})->name('app.clientes');
-    Route::get('/fornecedores', 'App\Http\Controllers\FornecedorController@index')->name('app.fornecedores');
-    Route::get('/produtos', function(){return 'produtos';})->name('app.produtos');
+    Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('app.home');
+    Route::get('/sair', 'App\Http\Controllers\LoginController@sair')->name('app.sair');
+    Route::get('/cliente', 'App\Http\Controllers\ClienteController@index')->name('app.cliente');
+    Route::get('/fornecedor', 'App\Http\Controllers\FornecedorController@index')->name('app.fornecedor');
+    Route::get('/produto', 'App\Http\Controllers\ProdutoController@index')->name('app.produto');
 
 });
 
