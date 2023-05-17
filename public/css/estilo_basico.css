@@ -151,11 +151,21 @@ button:hover {
     text-align: center;
     margin-bottom: 100px;
 }
-.titulo-pagina {
+
+.titulo-pagina{
     padding: 100px 0px 60px 0px;
     background-color: #2a9ee2;
     text-align: center;
 }
+.titulo-pagina-2 {
+    padding: 70px 0px 10px 0px;
+    margin-bottom: 10px;
+    background-color: #2a9ee2;
+    text-align: center;
+}
+
+
+
 
 .informacao-pagina {
     text-align: center;
@@ -194,4 +204,23 @@ button:hover {
     width: 30%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.msg-fornecedor{
+    color:green; 
+    background-color: #c0f1d5; 
+    border-radius: 5px;
+}
+
+.msg-fornecedor-error{
+    color:red;
+    border-radius: 5px;
+}
+
+.pagination li{
+    display: inline;
+}
+
+.pagination ul{
+    list-style-type: none;
 }

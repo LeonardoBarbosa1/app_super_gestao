@@ -5,11 +5,13 @@
         <meta charset="utf-8">
         {{--CSS--}}
         <link rel="stylesheet" href="{{asset('css/estilo_basico.css')}}">
+        @stack('scripts')
     </head>
     <body>
         {{-- MENU --}}
         @include('app.layouts._partials.topo')
         {{-- CONTEÚDO DO CORPO --}}
+        
         @yield('conteudo')
        
     </body>
