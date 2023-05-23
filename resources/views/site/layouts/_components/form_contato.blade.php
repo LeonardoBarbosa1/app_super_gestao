@@ -7,6 +7,12 @@
     {{-- TOKEN --}}
     @csrf
 
+    <div class="msg-fornecedor" id="mensagem-sucesso" >
+        {{ session("msg") }}
+    </div>
+    
+                
+
     <div style="color:red;">   {{-- has verifica se tem erros relacionado a nomes --}}
         @if($errors->has("nome"))
             {{$errors->first("nome")}}
@@ -48,13 +54,3 @@
     <br>
     <button type="submit" class="{{$classe}}">ENVIAR</button>
 </form>
-@if($errors->any())
-    <div style="position:absolute; top:0px; left:0px; width:100%; background:red;">
-        
-        @foreach ($errors->all() as $erro)
-            {{ $erro }}
-            <br>
-        @endforeach
-
-    </div>      
-@endif

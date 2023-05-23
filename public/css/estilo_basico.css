@@ -224,3 +224,9 @@ button:hover {
 .pagination ul{
     list-style-type: none;
 }
+
+svg {
+    display: inline;
+    width: 25px;
+}
+

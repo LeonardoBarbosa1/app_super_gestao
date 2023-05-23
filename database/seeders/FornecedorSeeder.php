@@ -44,6 +44,6 @@ class FornecedorSeeder extends Seeder
         ]);
         
         //criando mais 1000 registros no banco, mas é preciso colocar os tipos em Factories
-        \App\Models\Fornecedor::factory()->count(1000)->create();
+        \App\Models\Fornecedor::factory()->count(500)->create();
     }
 }

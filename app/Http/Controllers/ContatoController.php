@@ -12,16 +12,20 @@ class ContatoController extends Controller
     public function contato(Request $request){
 
         
+      
        $motivo_contatos = MotivoContato::all();
         return view('site.contato',[
             'titulo'=>'Contato', 
             'motivo_contatos' => $motivo_contatos
+            
         ]);
     }
 
     public function salvar(Request $request){
-        //Realizar a validação dos dados do formulário recebidos pelo request antes de salvar
 
+        
+        //Realizar a validação dos dados do formulário recebidos pelo request antes de salvar
+        if($request->input("_token") != ""){
         $regras = [
             'nome' => 'required |min:3 |max:40',
            'telefone' => 'required',
@@ -47,10 +51,16 @@ class ContatoController extends Controller
         
         $request->validate($regras, $feedback );
 
+         //dados para view caso cadastro seja realizado
+
+         
+    }
+    
         //Salva os campos no banco
         Contato::create($request->all());
-        //Redirecionando para página inicial
-        return redirect()->route('site.index');
+        //Redirecionando para página inicial,
+        
+        return redirect()->route('site.index')->with("msg", "Contato enviado com sucesso!");
 
 
     }

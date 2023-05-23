@@ -22,9 +22,14 @@
             <div style="width: 30%; margin-left: auto; margin-right: auto;">
                 
                     <div 
-                        @if($msg == "Atualização realizada com sucesso")
+                        @if($msg == "Atualização realizada com sucesso" )
                             class="msg-fornecedor"
                         @endif 
+
+                         @if($msg == "Cadastro realizado com sucesso" )
+                            class="msg-fornecedor"
+                        @endif   
+                                             
                         @if($msg == "Erro ao Atualizar")
                             class="msg-fornecedor-error"
                         @endif 
@@ -44,7 +49,10 @@
                                             {{--mandando para a rota adicionar --}}
                 <form method="post" action="{{ route("app.fornecedor.adicionar")}}">
                 @csrf
-                    <input type="hidden" name="id" value="{{$fornecedor->id ?? ""}}">
+                    {{-- Este bloco de código está aqui, pois vai trazer os dados do ID indicado caso tenha... 
+                    Estou aproveitando este formulário para a página de edição também! --}}
+                        <input type="hidden" name="id" value="{{$fornecedor->id ?? ""}}">
+                    {{--                                                                 --}}    
 
                     <div style="color:red;">   {{-- has verifica se tem erros relacionado a nomes --}}
                         {{ $errors->has("nome") ? $errors->first("nome") : ""}}
@@ -66,7 +74,7 @@
                     </div>   
                         <input type="text" name="email" value="{{ $fornecedor->email ?? old("email")}}" placeholder="E-mail" class="borda-preta">
 
-                    <button type="submit" class="borda-preta">Pesquisar</button>
+                    <button type="submit" class="borda-preta">{{ $botao }}</button>
                 </form>
             </div>
         </div>

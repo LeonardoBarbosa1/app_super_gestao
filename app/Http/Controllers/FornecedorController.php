@@ -18,12 +18,13 @@ class FornecedorController extends Controller
                             ->where("site", "like", "%".$request->input("site")."%")
                             ->where("uf", "like", "%".$request->input("uf")."%")
                             ->where("email", "like", "%".$request->input("email")."%")
-                            ->paginate(20);
+                            ->paginate(15);
             
-            return view("app.fornecedor.listar", ["fornecedores" => $fornecedores]);
+            return view("app.fornecedor.listar", ["fornecedores" => $fornecedores, "request" => $request->all() ]);
         }
 
         public function adicionar(Request $request){
+           
             $msg = "";
             //verificando se o token do formulário esta vazio
             //Inclusão
@@ -59,6 +60,7 @@ class FornecedorController extends Controller
 
                 //dados para view caso cadastro seja realizado
                 $msg = "Cadastro realizado com sucesso";
+               
             }
 
             //Edição
@@ -81,12 +83,15 @@ class FornecedorController extends Controller
                     
                    
                 ]);
+
                 
             }
 
             return view("app.fornecedor.adicionar", [
                 "msg" => $msg,
                 "titulo" => "Adicionar",
+                "botao" => "Adicionar",
+                
                
             ]);
         }
@@ -99,8 +104,20 @@ class FornecedorController extends Controller
             return view("app.fornecedor.adicionar", [
                 "fornecedor" => $fornecedor,
                 "titulo" => "Editar",
+                "botao" => "Atualizar",
                 "msg" => $msg
             ]);
+        }
+
+        public function excluir(Request $request, $id, $msg = ""){
+            
+            $model = Fornecedor::find($id);
+            $nome = $model->nome;
+            
+            $msg = "Forcenecedor $nome excluído com sucesso!";
+
+            Fornecedor::find($id)->delete();
+            return view("app.fornecedor.index", ["msg" => $msg]);
         }
 
 }
