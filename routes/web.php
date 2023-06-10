@@ -70,7 +70,9 @@ Route::middleware('autenticacao')->prefix('/app')->group(function(){
 
     //PRODUTOS
     Route::resource('/produto', 'App\Http\Controllers\ProdutoController');
-    //Route::get('/produto/create', 'App\Http\Controllers\ProdutoController@create')->name('app.produto.create');
+    
+    //PRODUTOS DETALHES
+    Route::resource('/produto-detalhe', 'App\Http\Controllers\ProdutoDetalheController');
 
 });
 
