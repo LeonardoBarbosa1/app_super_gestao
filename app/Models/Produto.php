@@ -14,4 +14,5 @@ class Produto extends Model
     public function produtoDetalhe(){
         return $this->hasOne("App\Models\ProdutoDetalhe");
     }
+    
 }

@@ -11,6 +11,15 @@
         @csrf
 
 @endif
+        <div style="color:red;"> {{-- has verifica se tem erros relacionado a unidade_id --}}
+            {{ $errors->has("fornecedor_id") ? $errors->first("fornecedor_id") : ""}}
+        </div>
+        <select name="fornecedor_id">
+            <option> -- Selecione um Fornecedor </option>
+            @foreach ($fornecedores as $fornecedor)
+            <option value="{{$fornecedor->id}}" {{ ($produto->fornecedor_id ?? old("fornecedor_id")) == $fornecedor->id ? "selected" : ""}}> {{$fornecedor->nome}} </option>
+            @endforeach
+        </select>
         <div style="color:red;"> {{-- has verifica se tem erros relacionado a nomes --}}
             {{ $errors->has("nome") ? $errors->first("nome") : ""}}
         </div>
@@ -34,7 +43,6 @@
             @foreach ($unidades as $unidade)
             <option value="{{$unidade->id}}" {{ ($produto->unidade_id ?? old("unidade_id")) == $unidade->id ? "selected" : ""}}> {{$unidade->descricao}} </option>
             @endforeach
-
         </select>
 
         <button type="submit" class="borda-preta">Enviar</button>

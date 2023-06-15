@@ -61,6 +61,7 @@ class ProdutoDetalheController extends Controller
      */
     public function edit($id)
     {
+                                       //with() está fazendo um Eager Loading(Carregamento ansioso) de item
        $produto_detalhe = ItemDetalhe::with(["item"])->find($id);
         $unidades = Unidade::all();
         return view("app.produto_detalhe.edit", ["produto_detalhe" => $produto_detalhe, "unidades" => $unidades ]);
