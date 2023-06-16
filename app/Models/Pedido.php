@@ -17,8 +17,8 @@ class Pedido extends Model
      public function produtos(){
         // return $this->belongsToMany("App\Models\Produto", "pedidos_produtos", );
 
-        //Quando Muda o nome dos modelos, Ex: de Produto para Item
-        return $this->belongsToMany("App\Models\Item", "pedidos_produtos", "pedido_id", "produto_id");
+        //Quando Muda o nome dos modelos, Ex: de Produto para Item                                              Recupera para o pivô created_at que o produto foi colocado
+        return $this->belongsToMany("App\Models\Item", "pedidos_produtos", "pedido_id", "produto_id")->withPivot("id","created_at","updated_at");
 
         /* PARAMETROS
             1 - Modelo do relacionamento N pra N que estamos implementando Ex:App\Models\Item

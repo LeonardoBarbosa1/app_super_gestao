@@ -79,6 +79,7 @@ Route::middleware('autenticacao')->prefix('/app')->group(function(){
     //Route::resource('/pedido-produto', 'App\Http\Controllers\PedidoProdutoController');
     Route::get('/pedido-produto/create/{pedido}', 'App\Http\Controllers\PedidoProdutoController@create')->name('pedido-produto.create');
     Route::post('/pedido-produto/store/{pedido}', 'App\Http\Controllers\PedidoProdutoController@store')->name('pedido-produto.store');
+    Route::delete('/pedido-produto.destroy/{pedidoProduto}/{pedido_id}', 'App\Http\Controllers\PedidoProdutoController@destroy')->name('pedido-produto.destroy');
 
 });
 
